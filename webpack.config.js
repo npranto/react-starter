@@ -1,6 +1,6 @@
 const path = require('path');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: './src/index.html',
     filename: 'index.html',
@@ -8,12 +8,19 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 
 module.exports = {
-    entry: './src/index.js',
+    entry: path.join(__dirname, 'src', 'index.js'),
     output: {
-        path: path.resolve('./dist'),
+        path: path.join(__dirname, 'dist'),
         filename: 'index.bundle.js'
     },
     module: {
+        preLoaders: [
+            {
+                test: /\.js$/,
+                loader: "jshint-loader",
+                exclude: /node_modules/
+            }
+        ],
         loaders: [
             {
                 test: /\.js$/,
@@ -32,7 +39,27 @@ module.exports = {
             }
         ]
     },
+    jshint: {
+        // any jshint option http://www.jshint.com/docs/options/
+        // i. e.
+        camelcase: true,
+        curly: true,
+
+
+        // jshint errors are displayed by default as warnings
+        // set emitErrors to true to display them as errors
+        emitErrors: false,
+
+        // jshint to not interrupt the compilation
+        // if you want any file with jshint errors to fail
+        // set failOnHint to true
+        failOnHint: false,
+
+        // custom reporter function
+        reporter: function(errors) { }
+    },
     plugins: [
         HtmlWebpackPluginConfig
-    ]
+    ],
+    devtool: '#source-map'
 }
