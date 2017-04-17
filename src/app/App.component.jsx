@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import './App.component.css';
 
-class App extends React.Component{
+class App extends Component{
     render() {
         return (
             <div id="app-component">
-                <h1 className="header"> App Component </h1>
+                <h1 style={{textAlign: 'center'}}>
+                    React, ready to go!
+                </h1>
             </div>
         )
     }

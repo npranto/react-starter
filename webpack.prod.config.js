@@ -1,4 +1,4 @@
-console.log('RUNNING IN DEVELOPMENT...');
+console.log('RUNNING IN PRODUCTION...');
 
 // requiring dependencies used inside webpack.config.js
 const webpack = require('webpack');
@@ -61,14 +61,11 @@ const config = {
                 return module.context && module.context.indexOf('node_modules') !== -1;
             }
         }),
-        new ExtractCSS('styles.bundle.css')
-    ],
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 8080
-    },
-    devtool: '#source-map'
+        new ExtractCSS('styles.bundle.css'),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        })
+    ]
 }
 
-const webpackDevConfig = module.exports = config;
+const webpackProdConfig = module.exports = config;
