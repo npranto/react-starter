@@ -21,32 +21,35 @@ Make sure to have the following packages installed:
 ### Installing
 
 Simply,
-    * Open a terminal window &&
-    * Navigate to the directory where you want to create a new React project &&
+
+* Open a terminal window &&
+* Navigate to the directory where you want to create a new React project &&
 
 Then,
-    Just run...
-    ```
-    git clone https://github.com/npranto/react-starter.git [YOUR_PROJECT_NAME]
-    ```
 
-    Now, go into the project directory
+Just run...
 
-    ```
-    cd [PROJECT_NAME]
-    ```
+```
+git clone https://github.com/npranto/react-starter.git [YOUR_PROJECT_NAME]
+```
 
-    Then, install packages/dependencies
+Now, go into the project directory
 
-    ```
-    yarn install
-    ```
+```
+cd [PROJECT_NAME]
+```
 
-    Finally, to run a localhost in the browser
+Then, install packages/dependencies
 
-    ```
-    yarn start
-    ```
+```
+yarn install
+```
+
+Finally, to run a localhost in the browser
+
+```
+yarn start
+```
 
 ## Authors
 * **Nazmuz Shakib Pranto** [[GitHub](https://github.com/npranto) | [LinkedIn](https://www.linkedin.com/in/npranto/)]
